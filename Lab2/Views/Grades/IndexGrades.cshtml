@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "IndexGrades";
+}
+
+<h2>Welcome to the grade calculator.</h2>
+<h3>Enter your 3 latest grades down below.</h3>
+
+@using (Html.BeginForm("IndexGrades", "Grades", FormMethod.Post))
+{
+    @Html.Label("First Grade")
+    <br />
+    @Html.TextBox("gradeOne")
+    <br />
+    @Html.Label("Second Grade")
+    <br />
+    @Html.TextBox("gradeTwo")
+    <br />
+    @Html.Label("Third Grade")
+    <br />
+    @Html.TextBox("gradeThree")
+    <br />
+    <br />
+    <input type="submit" />
+}
+
+@if (ViewData["letterGrade"] != null)
+{
+    if (ViewData["letterGrade"] == "Your letter grade is A" || ViewData["letterGrade"] == "Your letter grade is B")
+    {
+        <h3 style="color:green">@ViewData["letterGrade"]</h3>
+    }
+    else if (ViewData["letterGrade"] == "Your letter grade is C")
+    {
+        <h3 style="color:yellow">@ViewData["letterGrade"]</h3>
+    }
+    else 
+    {
+        <h3 style="color:red">@ViewData["letterGrade"]</h3>
+    }
+
+}

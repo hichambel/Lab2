@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to the Loan Calculator!</h2>
+<h3>Fill out the form below to find out how rich you will be in the future.</h3>
+<br />
+<br />
+
+<form action="@Url.Action("IndexLoan","Loan")" method="post">
+    Years<br />
+        <input id="years" name="years" type="number"/><br />
+    Investment amount<br />
+        <input id="amount" name="amount" type="number"/><br />
+    Interest rate<br />
+        <input id="rate" name="rate" type="number"/><br />
+    <input type="submit" />
+</form>
+
+@if (ViewData["years"] != null || ViewData["amount"] != null || ViewData["rate"] != null)
+{
+<h3>Given @ViewData["years"] years, an investment of $@ViewData["amount"], and an annual rate of @ViewData["rate"]%, you will have $@ViewData["finalAmount"]</h3>
+}
